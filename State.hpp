@@ -4,7 +4,7 @@
 
 namespace SM
 {
-    enum StateId: uint8_t
+    enum StateId : uint8_t
     {
         // GENERATED STATE ENUMS
         eStartUp = 0,
@@ -29,21 +29,21 @@ namespace SM
 
     class State
     {
-        public:
-            explicit State() {}
-            virtual ~State() {}
+    public:
+        explicit State();
+        virtual ~State();
 
-            /// Does the logic once when entering the state.
-            virtual void executeEnteringLogic() {}
+        /// Does the logic once when entering the state.
+        virtual void executeEnteringLogic() {}
 
-            /// Does the logic in this state.
-            virtual void executeLogic();
+        /// Does the logic in this state.
+        virtual void executeLogic(){};
 
-            /// Does the logic once when leaving the state.
-            virtual void executeLeavingLogic() {}
+        /// Does the logic once when leaving the state.
+        virtual void executeLeavingLogic() {}
 
-            /// Checks transitions and changes state if possible.
-            /// Returns true if state has changed.
-            virtual bool changeState(StateMachine &sm) = 0;
+        /// Checks transitions and changes state if possible.
+        /// Returns true if state has changed.
+        virtual bool changeState(StateMachine &sm) = 0;
     };
-}
+} // namespace SM
