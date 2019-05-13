@@ -1,4 +1,5 @@
-sm: main.cpp  Makefile
+.PHONY: sm
+sm:
 	g++ -Wall -Wextra -pedantic main.cpp State.cpp StateMachine.cpp StateStartUp.cpp StateOperational.cpp -o $@
 
 clean:

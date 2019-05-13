@@ -10,6 +10,7 @@ namespace SM
         StateStartUp() {}
 
         virtual void executeLogic() override;
+        virtual void executeLeavingLogic() override;
 
         virtual bool changeState(StateMachine &sm) override;
     };

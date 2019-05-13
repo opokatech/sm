@@ -9,7 +9,9 @@ namespace SM
     public:
         StateOperational() {}
 
+        virtual void executeEnteringLogic() override;
         virtual void executeLogic() override;
+        virtual void executeLeavingLogic() override;
 
         virtual bool changeState(StateMachine &) override;
     };

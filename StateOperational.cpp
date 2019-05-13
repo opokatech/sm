@@ -1,11 +1,36 @@
+#include <iostream>
+
+#include "StateMachine.hpp"
 #include "StateOperational.hpp"
 
 namespace SM
 {
-    void StateOperational::executeLogic() {}
-
-    bool StateOperational::changeState(StateMachine &)
+    void StateOperational::executeEnteringLogic()
     {
+        std::cout << "operational entering logic" << std::endl;
+    }
+
+    void StateOperational::executeLogic()
+    {
+        std::cout << "operational normal logic" << std::endl;
+    }
+    void StateOperational::executeLeavingLogic()
+    {
+        std::cout << "operational leaving logic" << std::endl;
+    }
+
+    bool StateOperational::changeState(StateMachine &sm)
+    {
+        static uint32_t i = 0;
+
+        i += 1;
+
+        if (i > 3)
+        {
+            i = 0;
+            sm.changeState(StateId::eStartUp);
+            return true;
+        }
         return false;
     }
 } // namespace SM

@@ -37,7 +37,7 @@ namespace SM
         virtual void executeEnteringLogic() {}
 
         /// Does the logic in this state.
-        virtual void executeLogic(){};
+        virtual void executeLogic() {}
 
         /// Does the logic once when leaving the state.
         virtual void executeLeavingLogic() {}

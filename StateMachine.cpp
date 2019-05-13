@@ -1,10 +1,17 @@
 #include "StateMachine.hpp"
 
+// GENERATED
+#include "StateStartUp.hpp"
+#include "StateOperational.hpp"
 
 namespace SM
 {
     StateMachine::StateMachine()
     {
+        // GENERATED
+        static StateStartUp stateStartUp;
+        static StateOperational stateOperational;
+
         // GENERATED
         state[eStartUp] = &stateStartUp;
         state[eOperational] = &stateOperational;
