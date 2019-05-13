@@ -19,7 +19,7 @@ namespace SM
         std::cout << "operational leaving logic" << std::endl;
     }
 
-    bool StateOperational::changeState(StateMachine &sm)
+    void StateOperational::checkTransitions(StateMachine &sm)
     {
         static uint32_t i = 0;
 
@@ -29,8 +29,6 @@ namespace SM
         {
             i = 0;
             sm.changeState(StateId::eStartUp);
-            return true;
         }
-        return false;
     }
 } // namespace SM

@@ -42,8 +42,7 @@ namespace SM
         /// Does the logic once when leaving the state.
         virtual void executeLeavingLogic() {}
 
-        /// Checks transitions and changes state if possible.
-        /// Returns true if state has changed.
-        virtual bool changeState(StateMachine &sm) = 0;
+        /// Changes state if possible.
+        virtual void checkTransitions(StateMachine &sm) = 0;
     };
 } // namespace SM

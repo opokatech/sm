@@ -12,7 +12,7 @@ namespace SM
         virtual void executeLogic() override;
         virtual void executeLeavingLogic() override;
 
-        virtual bool changeState(StateMachine &sm) override;
+        virtual void checkTransitions(StateMachine &sm) override;
     };
 
 } // namespace SM

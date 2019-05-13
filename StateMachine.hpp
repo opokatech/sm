@@ -9,6 +9,7 @@ namespace SM
     {
         public:
             explicit StateMachine();
+            // called from states
             void changeState(StateId newState);
 
             StateId getState() const { return currentState_; }

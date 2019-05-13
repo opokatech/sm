@@ -37,6 +37,6 @@ namespace SM
     void StateMachine::Run()
     {
         state[currentState_]->executeLogic();
-        state[currentState_]->changeState(*this);
+        state[currentState_]->checkTransitions(*this);
     }
 } // namespace SM

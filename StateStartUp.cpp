@@ -15,7 +15,7 @@ namespace SM
         std::cout << "startup leaving state" << std::endl;
     }
 
-    bool StateStartUp::changeState(StateMachine &sm)
+    void StateStartUp::checkTransitions(StateMachine &sm)
     {
         // generated transition comment:
         // TEMPERATURE_OK
@@ -23,6 +23,5 @@ namespace SM
 
         std::cout << "startup changing to operational" << std::endl;
         sm.changeState(StateId::eOperational);
-        return true;
     }
 } // namespace SM
