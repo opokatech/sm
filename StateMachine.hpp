@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include "StateId.hpp"
 #include "State.hpp"
 
 namespace SM
@@ -17,6 +18,6 @@ namespace SM
             void run();
         private:
             StateId currentState_ = StateId::eStartUp; // GENERATED
-            State * state[STATES_COUNT];
+            State * state[TOTAL_STATES];
     };
 }
