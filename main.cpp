@@ -12,7 +12,7 @@ int main()
         std::cout << "=============================" << std::endl;
         std::cout << "STEP " << step << std::endl;
 
-        sm.Run();
+        sm.run();
     }
     return 0;
 }

@@ -34,7 +34,7 @@ namespace SM
         state[currentState_]->executeEnteringLogic();
     }
 
-    void StateMachine::Run()
+    void StateMachine::run()
     {
         state[currentState_]->executeLogic();
         state[currentState_]->checkTransitions(*this);

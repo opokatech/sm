@@ -14,7 +14,7 @@ namespace SM
 
             StateId getState() const { return currentState_; }
 
-            void Run();
+            void run();
         private:
             StateId currentState_ = StateId::eStartUp; // GENERATED
             State * state[STATES_COUNT];
