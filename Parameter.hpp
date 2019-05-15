@@ -9,7 +9,7 @@ namespace AC
         class Real
         {
         public:
-            Real(float value = 0) : value_(value) {}
+            explicit Real(float value = 0) : value_(value) {}
 
             float get() const
             {
@@ -21,50 +21,27 @@ namespace AC
                 value_ = value;
             }
 
-            bool operator<(const Real &value) const
+            bool equal(const Real &other, float delta = 0.000001) const
             {
-                return value_ < value.value_;
-            }
-
-            bool operator<=(const Real &value) const
-            {
-                return value_ <= value.value_;
-            }
-
-            bool operator==(const Real &value) const
-            {
-                return value_ == value.value_;
-            }
-
-            bool operator>(const Real &value) const
-            {
-                return value_ > value.value_;
-            }
-
-            bool operator>=(const Real &value) const
-            {
-                return value_ >= value.value_;
+                if (value_ > other.value_)
+                {
+                    return (value_ - other.value_) < delta;
+                }
+                else
+                {
+                    return (other.value_ - value_) < delta;
+                }
             }
 
         protected:
             float value_ = 0;
         };
 
-        template <typename T> inline T operator+(const T &left, const T &right)
-        {
-            return T(left.get() + right.get());
-        }
-
-        template <typename T> inline T operator-(const T &left, const T &right)
-        {
-            return T(left.get() - right.get());
-        }
-
         class Pressure: public Real
         {
         public:
             // by mBar by default
-            Pressure(float value = 0) : Real(value) {}
+            explicit Pressure(float value = 0) : Real(value) {}
 
             float getmBar() const
             {
@@ -90,7 +67,7 @@ namespace AC
         class Temperature: public Real
         {
         public:
-            Temperature(float value = 0) : Real(value) {}
+            explicit Temperature(float value = 0) : Real(value) {}
 
             float getCelsius() const
             {
@@ -103,6 +80,40 @@ namespace AC
             }
         };
 
+        template <typename T> inline T operator+(const T &left, const T &right)
+        {
+            return T(left.get() + right.get());
+        }
+
+        template <typename T> inline T operator-(const T &left, const T &right)
+        {
+            return T(left.get() - right.get());
+        }
+
+        template <typename T> bool operator<(const T &left, const T &right)
+        {
+            return left.get() < right.get();
+        }
+
+        template <typename T> bool operator<=(const T &left, const T &right)
+        {
+            return left.get() < right.get();
+        }
+
+        template <typename T> bool operator==(const T &left, const T &right)
+        {
+            return left.equal(right);
+        }
+
+        template <typename T> bool operator>(const T &left, const T &right)
+        {
+            return left.get() > right.get();
+        }
+
+        template <typename T> bool operator>=(const T &left, const T &right)
+        {
+            return left.get() >= right.get();
+        }
     } // namespace Parameter
 
     // those are valid in namespace AC and below!
