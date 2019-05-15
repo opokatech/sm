@@ -6,7 +6,7 @@
 
 namespace SM
 {
-    StateMachine::StateMachine()
+    StateMachine::StateMachine(StateId startState): currentState_(startState)
     {
         // GENERATED
         static StateStartUp stateStartUp;

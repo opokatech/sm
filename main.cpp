@@ -11,7 +11,7 @@ int main()
     // they can be used only there. And since main() is not in AC:: then we need to use "using...".
     using namespace AC;
 
-    SM::StateMachine sm;
+    SM::StateMachine sm(SM::eStartUp);
 
     for (int step = 0; step < 8; ++step)
     {

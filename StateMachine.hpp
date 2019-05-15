@@ -9,7 +9,7 @@ namespace SM
     class StateMachine
     {
         public:
-            explicit StateMachine();
+            explicit StateMachine(StateId startState);
             // called from states
             void changeState(StateId newState);
 
@@ -17,7 +17,7 @@ namespace SM
 
             void run();
         private:
-            StateId currentState_ = StateId::eStartUp; // GENERATED
+            StateId currentState_;
             State * state[TOTAL_STATES];
     };
 }
