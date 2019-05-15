@@ -2,6 +2,7 @@
 
 #include "StateMachine.hpp"
 #include "StateOperational.hpp"
+#include "System.hpp"
 
 namespace SM
 {
@@ -28,6 +29,7 @@ namespace SM
         if (i > 3)
         {
             i = 0;
+            AC::System::pressureChamber.setmBar(10);
             sm.changeState(StateId::eStartUp);
         }
     }

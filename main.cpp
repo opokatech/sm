@@ -2,6 +2,10 @@
 #include <iostream>
 
 #include "StateMachine.hpp"
+#include "System.hpp"
+#include "Parameter.hpp"
+
+using namespace AC;
 
 int main()
 {
@@ -11,8 +15,14 @@ int main()
     {
         std::cout << "=============================" << std::endl;
         std::cout << "STEP " << step << std::endl;
+        std::cout << "pressure mBar: " << AC::System::pressureChamber.getmBar() << std::endl;
 
         sm.run();
     }
+
+    // System::pressureChamber = System::chamberTemperature;
+    System::pressureChamber = 5.0_uBar;
+    std::cout << "pressure in mBar: " << System::pressureChamber.getmBar() << std::endl;
+
     return 0;
 }
