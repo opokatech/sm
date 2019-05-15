@@ -121,7 +121,6 @@ namespace AC
         return Parameter::Pressure(value / 1000);
     }
 
-
     inline Parameter::Temperature operator"" _C(long double value)
     {
         return Parameter::Temperature(value);
