@@ -32,6 +32,8 @@ int main()
     Parameter::Temperature temperatureThreshold{150.1_C};
 
     std::cout << "pressureChamber < threshold: " << (System::pressureChamber < pressureThreshold) << std::endl;
+    pressureThreshold = pressureThreshold + 4.1_uBar;
+    std::cout << "pressureThreshold in mBar: " << pressureThreshold.getmBar() << std::endl;
 
     // comparing different types is invalid
     // if (System::pressureChamber < temperatureThreshold)
