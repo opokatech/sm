@@ -43,5 +43,11 @@ int main()
         std::cout << "chamberTemperature == templateThreshold" << std::endl;
     }
 
+    Parameter::Bool b{0};
+    std::cout << "b == " << b.get() << std::endl;
+    b.set(true);
+    std::cout << "b == " << b.get() << std::endl;
+    b.set(1);
+
     return 0;
 }

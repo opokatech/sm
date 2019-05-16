@@ -37,6 +37,30 @@ namespace AC
             float value_ = 0;
         };
 
+        class Bool
+        {
+        public:
+            explicit Bool(bool value = false) : value_(value) {}
+
+            bool get() const
+            {
+                return value_;
+            }
+
+            void set(bool value)
+            {
+                value_ = value;
+            }
+
+            bool equal(const Bool &other) const
+            {
+                return value_ == other.get();
+            }
+
+        protected:
+            bool value_ = false;
+        };
+
         class Pressure: public Real
         {
         public:
@@ -116,7 +140,7 @@ namespace AC
         }
     } // namespace Parameter
 
-    // those are valid in namespace AC and below!
+    // those are valid in the whole namespace AC and below!
     inline Parameter::Pressure operator"" _Bar(long double value)
     {
         return Parameter::Pressure(value * 1000);
